@@ -30,6 +30,7 @@ public class myBinder extends Binder {
         //Toast.makeText(ctx, "onTransact triggered...", Toast.LENGTH_LONG).show();
         //File file = new File(Environment.getExternalStorageDirectory() + "/music/123.mp3");
 //        if (file == null) {
+
 //            //file = new File(Environment.getExternalStorageDirectory() + "/music/123.mp3");
 //            file = new File(data.readString());
 //        }
