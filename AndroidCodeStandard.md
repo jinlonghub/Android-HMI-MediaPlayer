@@ -1,6 +1,6 @@
-#Android 代码规范
+# Android 代码规范
 
-##命名规则
+## 命名规则
  1. Pakage命名：全部小写，连续的单词只是简单地连接起来，不使用下划线  
    如：'com.exampl.playerdemo'  
 
