@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
@@ -21,12 +20,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.io.File;
 import java.util.List;
 
-public class myActivity extends AppCompatActivity {
+public class MyActivity extends AppCompatActivity {
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static final int REQUEST_AUDIO_SETTINGS = 2;
@@ -77,9 +75,9 @@ public class myActivity extends AppCompatActivity {
         setContentView(R.layout.activity_playing);
         verifyStoragePermissions(this);
 
-        Intent _intent = this.getIntent();
+        Intent intentTmp = this.getIntent();
 
-        if(_intent != null){
+        if(intentTmp != null){
             Log.i("StevenLog","Get click intent to play music.");
         }
 
@@ -155,7 +153,7 @@ public class myActivity extends AppCompatActivity {
         });
 
         startService(new Intent(this, MediaService.class));
-        Intent intent = new Intent(myActivity.this, MediaService.class);
+        Intent intent = new Intent(MyActivity.this, MediaService.class);
         bindService(intent, conn, Context.BIND_AUTO_CREATE);
     }
 

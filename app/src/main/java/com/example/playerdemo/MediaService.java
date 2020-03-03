@@ -11,7 +11,7 @@ public class MediaService extends Service {
     private IBinder mb;
 
     @Override public void onCreate(){
-        mb = new myBinder(this);
+        mb = new MyBinder(this);
         Toast.makeText(this,"MediaService Created, Binder Created", Toast.LENGTH_LONG).show();
     }
 
@@ -25,12 +25,12 @@ public class MediaService extends Service {
 
    // @Override
 //    public void onStart() {
-//        mb = new myBinder(this);
+//        mb = new MyBinder(this);
 //    }
     @Override
     public int onStartCommand(Intent intent , int flags, int startId) {
         //Toast.makeText(this, "onStartCommand， Server Binder Created", Toast.LENGTH_LONG).show();
-        //mb = new myBinder(this);
+        //mb = new MyBinder(this);
         return super.onStartCommand(intent, flags, startId);
     }
 }

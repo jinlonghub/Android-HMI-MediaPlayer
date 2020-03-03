@@ -17,9 +17,9 @@ import java.io.IOException;
 /**
  * Created by SJin2 on 2020/2/22.
  */
-public class myBinder extends Binder {
+public class MyBinder extends Binder {
     private Context ctx;
-    public myBinder(Context cx) {
+    public MyBinder(Context cx) {
         ctx = cx;
     }
 
