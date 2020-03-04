@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.io.File;
 import java.util.List;
@@ -75,45 +76,45 @@ public class MyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_playing);
         verifyStoragePermissions(this);
 
+        /*
         Intent intentTmp = this.getIntent();
-
         if(intentTmp != null){
-            Log.i("StevenLog","Get click intent to play music.");
+            Log.d("StevenLog","Get click intent to play music.");
         }
+        */
 
-
-        final Button _button = this.findViewById(R.id.button_playing);
-        _button.setOnClickListener(new View.OnClickListener() {
+        final Button button_playing = this.findViewById(R.id.button_playing);
+        button_playing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(this,"button 101", Toast.LENGTH_LONG).show();
                 if (!playing) {//resume
-                    Parcel _data = Parcel.obtain();
-                    Parcel _reply = Parcel.obtain();
-                    _data.writeString("Resume");
+                    Parcel data = Parcel.obtain();
+                    Parcel reply = Parcel.obtain();
+                    data.writeString("Resume");
                     try {
-                        mbinder.transact(2, _data, _reply, 0);
+                        mbinder.transact(2, data, reply, 0);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
                     playing = true;
-                    _button.setText("Pause");
+                    button_playing.setText("Pause");
                     //(Button)(v.findViewById(R.id.button_playing)).setText;
                 } else { //pause
-                    Parcel _data = Parcel.obtain();
-                    Parcel _reply = Parcel.obtain();
-                    _data.writeString("Pause");
+                    Parcel data = Parcel.obtain();
+                    Parcel reply = Parcel.obtain();
+                    data.writeString("Pause");
                     try {
-                        mbinder.transact(0, _data, _reply, 0);
+                        mbinder.transact(0, data, reply, 0);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
                     playing = false;
-                    _button.setText("Resume");
+                    button_playing.setText("Resume");
                 }
             }
         });
-        _button.setEnabled(false);
+        button_playing.setEnabled(false);
 
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
         GetFileUtils gfu = GetFileUtils.getInstance();
@@ -130,18 +131,18 @@ public class MyActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (!onCreate) {
-                    Parcel _data = Parcel.obtain();
-                    Parcel _reply = Parcel.obtain();
-                    _data.writeString(parent.getItemAtPosition(position).toString());
+                    Parcel data = Parcel.obtain();
+                    Parcel reply = Parcel.obtain();
+                    data.writeString(parent.getItemAtPosition(position).toString());
                     try {
-                        mbinder.transact(1, _data, _reply, 0);
+                        mbinder.transact(1, data, reply, 0);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
-                    _button.setEnabled(true);
+                    button_playing.setEnabled(true);
                     playing = true;
                 } else {
-                    _button.setEnabled(false);
+                    button_playing.setEnabled(false);
                     onCreate = false;
                 }
             }
@@ -152,9 +153,33 @@ public class MyActivity extends AppCompatActivity {
             }
         });
 
+        final Button button_switch = this.findViewById(R.id.button_switch);
+        button_switch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("StevenLog", "click switch button.");
+                Intent intent = new Intent(MyActivity.this, ExampleActivity.class);
+                startActivityForResult(intent, 1234);
+            }
+        });
+
+
+
         startService(new Intent(this, MediaService.class));
         Intent intent = new Intent(MyActivity.this, MediaService.class);
         bindService(intent, conn, Context.BIND_AUTO_CREATE);
     }
+
+    /*
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (resultCode == 4321) {
+            Toast.makeText(this, resultCode, Toast.LENGTH_LONG).show();
+        }
+        //Intent mIntent = new Intent(intent, MyActivity.this);
+        //super.onActivityResult(requestCode, resultCode, mIntent);
+    }
+     */
+
 
 }

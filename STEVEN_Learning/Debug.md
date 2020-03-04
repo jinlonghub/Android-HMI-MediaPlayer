@@ -1,6 +1,5 @@
 # DEBUG
 
-----------
 ## UI DEBUG
  1. Activity Title显示：`anroid:text`属性为`@string`
  ```html

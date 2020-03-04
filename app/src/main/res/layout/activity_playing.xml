@@ -8,22 +8,29 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Playing" />
+        android:text="@string/playing" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/image"
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <Button
         android:id="@+id/button_playing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pause" />
+        android:text="@string/pause" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/switch_activity" />
 </LinearLayout>

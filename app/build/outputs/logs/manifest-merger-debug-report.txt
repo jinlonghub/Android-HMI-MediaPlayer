@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
+ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\6119d746697059b7e1b74aab4d181f56\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\3ec6fa8458ddbe732478393a9f9e6c77\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\ceb81553a8d4d1147c847656f2ca2121\recyclerview-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -35,20 +35,20 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\Sjin2\.gradle\caches\transform
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\63647da4654da12a6f2785cfbbad8123\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\733fc1d306cee2c05d3e1fb0b7527020\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\fdd65d8b6066fd289a68b42931dc03a2\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
 	package
 		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
+		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
 		INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-42:12
+		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:1-45:12
 		INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:2:11-69
@@ -105,7 +105,7 @@ ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidM
 	android:name
 		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:17:22-78
 application
-ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:19:5-40:19
+ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:19:5-43:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\3ec6fa8458ddbe732478393a9f9e6c77\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\3ec6fa8458ddbe732478393a9f9e6c77\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.core:core:1.1.0] C:\Users\Sjin2\.gradle\caches\transforms-2\files-2.1\e9dab9c67c1ee3668e0bbf86c6d8cbd8\core-1.1.0\AndroidManifest.xml:24:5-89
@@ -148,6 +148,10 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:36:17-77
 	android:name
 		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:36:27-74
+activity#com.example.playerdemo.ExampleActivity
+ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:40:9-41:20
+	android:name
+		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:40:19-50
 uses-sdk
 INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml

@@ -51,7 +51,7 @@
 23-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:17:22-78
 24
 25    <application
-25-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:19:5-40:19
+25-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:19:5-43:19
 26        android:allowBackup="true"
 26-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:20:9-35
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -92,6 +92,10 @@
 45-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:36:27-74
 46            </intent-filter>
 47        </activity>
-48    </application>
-49
-50</manifest>
+48        <activity android:name="com.example.playerdemo.ExampleActivity" >
+48-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:40:9-41:20
+48-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:40:19-50
+49        </activity>
+50    </application>
+51
+52</manifest>

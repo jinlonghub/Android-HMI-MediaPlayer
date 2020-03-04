@@ -45,7 +45,7 @@ public class ExampleActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
+    /*
     private IBinder mbinder = null;
     private ServiceConnection conn = new ServiceConnection() {
         //@Override
@@ -57,21 +57,26 @@ public class ExampleActivity extends AppCompatActivity {
             //
         }
     };
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_home);
+        setContentView(R.layout.activity_example);
         verifyStoragePermissions(this);
 
-        Intent intentTmp = this.getIntent();
-
-        if(intentTmp != null){
-            Log.d ("StevenLog","Get click intent to play music.");
+        final Intent receiveIntent = this.getIntent();
+        if(receiveIntent != null){
+            Log.d ("StevenLog","Get click intent to switch to ExampleActivity.");
         }
 
-
-        final Button _button = this.findViewById(R.id.button_exam_play);
-        _button.setOnClickListener(new View.OnClickListener() {
+        final Button button2Home = this.findViewById(R.id.button_2home);
+        button2Home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //setResult(4321, receiveIntent);
+                finish();
+            }
+        });
+    }
 
 }
