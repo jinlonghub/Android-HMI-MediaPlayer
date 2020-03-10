@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView_provider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_activity_media_provider"/>
+
+    <ImageView
+        android:id="@+id/imageView_provider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <Button
+        android:id="@+id/button_P2home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/return_to_home"/>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/previous"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="上一首" />
+
+        <Button
+            android:id="@+id/play"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="播放" />
+
+        <Button
+            android:id="@+id/pause"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="暂停" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="下一首" />
+
+    </LinearLayout>
+
+</LinearLayout>

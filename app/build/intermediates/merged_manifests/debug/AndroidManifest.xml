@@ -32,11 +32,19 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.playerdemo.MediaProviderActivity"
+            android:label="@string/title_activity_media_provider"
+            android:theme="@style/AppTheme" />
+
+        <service
+            android:name="com.example.playerdemo.MediaServiceProvider"
+            android:enabled="true"
+            android:exported="true" />
         <service
             android:name="com.example.playerdemo.MediaService"
             android:enabled="true"
-            android:exported="true" >
-        </service>
+            android:exported="true" />
 
         <activity android:name="com.example.playerdemo.MyActivity" >
             <intent-filter>
@@ -45,8 +53,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.playerdemo.ExampleActivity" >
-        </activity>
+        <activity android:name="com.example.playerdemo.ExampleActivity" />
     </application>
 
 </manifest>

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.playerdemo">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -23,11 +23,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".MediaProviderActivity"
+            android:label="@string/title_activity_media_provider"
+            android:theme="@style/AppTheme"></activity>
+
+        <service
+            android:name=".MediaServiceProvider"
+            android:enabled="true"
+            android:exported="true" ></service>
+
         <service
             android:name=".MediaService"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true" ></service>
 
         <activity android:name=".MyActivity">
             <intent-filter>
@@ -36,10 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ExampleActivity">
-        </activity>
-
+        <activity android:name=".ExampleActivity" />
     </application>
 
 </manifest>

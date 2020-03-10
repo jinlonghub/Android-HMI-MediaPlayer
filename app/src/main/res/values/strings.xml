@@ -9,4 +9,5 @@
     <string name="play_list">Play List</string>
     <string name="example_activity">Example_Activity</string>
     <string name="show">show</string>
+    <string name="title_activity_media_provider">MediaProviderActivity</string>
 </resources>

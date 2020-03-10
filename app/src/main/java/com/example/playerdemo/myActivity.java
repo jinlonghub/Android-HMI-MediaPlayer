@@ -19,13 +19,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.File;
 import java.util.List;
 
-public class MyActivity extends AppCompatActivity {
+public class MyActivity extends AppCompatActivity{
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static final int REQUEST_AUDIO_SETTINGS = 2;
@@ -114,6 +115,7 @@ public class MyActivity extends AppCompatActivity {
                 }
             }
         });
+
         button_playing.setEnabled(false);
 
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
@@ -126,7 +128,6 @@ public class MyActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         mySpinner.setAdapter(dataAdapter);
         mySpinner.setSelection(0);
-
         mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -149,7 +150,7 @@ public class MyActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                /* do nothing */
             }
         });
 
@@ -163,12 +164,23 @@ public class MyActivity extends AppCompatActivity {
             }
         });
 
+        //Button to jump to Provider.
+        final Button button_provider = this.findViewById(R.id.button_provider);
+        button_provider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("StevenLog", "click switch button to jump to provider.");
+                Intent intent = new Intent(MyActivity.this, MediaProviderActivity.class);
+                startActivityForResult(intent, 1122);
+            }
+        });
 
 
         startService(new Intent(this, MediaService.class));
         Intent intent = new Intent(MyActivity.this, MediaService.class);
         bindService(intent, conn, Context.BIND_AUTO_CREATE);
     }
+
 
     /*
     @Override
@@ -183,3 +195,6 @@ public class MyActivity extends AppCompatActivity {
 
 
 }
+
+
+
