@@ -31,7 +31,7 @@ import androidx.core.app.ActivityCompat;
  * Created by SJin2 on 2020/3/3.
  */
 public class ExampleActivity extends AppCompatActivity {
-
+/*
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static final int REQUEST_AUDIO_SETTINGS = 2;
     private static String[] PERMISSIONS_STORAGE = {
@@ -40,7 +40,6 @@ public class ExampleActivity extends AppCompatActivity {
             android.Manifest.permission.MODIFY_AUDIO_SETTINGS,
             Manifest.permission.WAKE_LOCK
     };
-
     public static void verifyStoragePermissions(Activity activity) {
         try {
             //检测是否有写的权限
@@ -57,6 +56,7 @@ public class ExampleActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+*/
     /*
     private IBinder mbinder = null;
     private ServiceConnection conn = new ServiceConnection() {
@@ -75,9 +75,14 @@ public class ExampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
-        verifyStoragePermissions(this);
+        //verifyStoragePermissions(this);
+        final Intent receiveIntent = this.getIntent();
+        if(receiveIntent != null){
+            Log.d ("StevenLog","Get click intent to switch to ExampleActivity.");
+        }
 
-        /* 功能：TextView显示超链接：textView to display autoLink. */
+
+        //功能：TextView显示超链接：textView to display autoLink.
         String html = "百度一下： \n";
         html += "http://www.baidu.com";
         //TextView mTextView = new TextView(this);
@@ -86,11 +91,6 @@ public class ExampleActivity extends AppCompatActivity {
         //mTextView.setMovementMethod(LinkMovementMethod.getInstance());
         final TextView mTextView = this.findViewById(R.id.textView_link);
         mTextView.setText(html);
-
-        final Intent receiveIntent = this.getIntent();
-        if(receiveIntent != null){
-            Log.d ("StevenLog","Get click intent to switch to ExampleActivity.");
-        }
 
         final Button button2Home = this.findViewById(R.id.button_2home);
         button2Home.setOnClickListener(new View.OnClickListener() {
@@ -149,16 +149,17 @@ public class ExampleActivity extends AppCompatActivity {
             }
         });
 
+        /*
         Button buttonProvider = this.findViewById(R.id.button_provider);
         buttonProvider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ContentResolver contentResolver = getContentResolver();
                 Cursor tmpCursor = contentResolver.query(Uri.parse("content://com.example.playerdemo.myprovider"),null,null,null,null);
-
-
             }
         });
+
+        */
     }
 
 }

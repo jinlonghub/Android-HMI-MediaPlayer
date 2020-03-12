@@ -31,7 +31,7 @@
         <service
             android:name=".MediaServiceProvider"
             android:enabled="true"
-            android:exported="true" ></service>
+            android:exported="true"></service>
 
         <service
             android:name=".MediaService"

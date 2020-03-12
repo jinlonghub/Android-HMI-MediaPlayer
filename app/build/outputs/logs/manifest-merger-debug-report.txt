@@ -140,7 +140,7 @@ ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidM
 	android:name
 		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:27:13-50
 service#com.example.playerdemo.MediaServiceProvider
-ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:31:9-34:48
+ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:31:9-34:47
 	android:enabled
 		ADDED from C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:33:13-35
 	android:exported

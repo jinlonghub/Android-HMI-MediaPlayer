@@ -62,40 +62,10 @@
         android:background="#009688"
         android:gravity="center"/>
 
-    <!--
-    <TextView
-        //控件id
-        android:id = "@+id/xxx" //@+id/xxx表示新增控件命名为xxx
-        //宽度与高度
-        android:layout_width="wrap_content" //wrap_content或者match_parent
-        android:layout_height="wrap_content" //wrap_content或者match_parent
-        //文本文字
-        android:text="@string/hello_world" //两种方式，直接具体文本或者引用values下面的string.xml里面的元素
-        //文本提示内容
-        android:hint="hello_world" //android:text和android:hint区别是后者只是提示作用，真正需要输入的时候提示的内容会消失
-        //字体大小
-        android:textSize="24sp" //以sp为单位
-        //字体颜色
-        android:textColor="#0000FF" //RGB颜色
-        //字体格式
-        android:textStyle="normal" //normal,bold,italic分别为正常，加粗以及斜体，默认为normal
-        //文本显示位置
-        android:gravity="center" //来指定文字的对齐方式,可选值有 top、bottom、left、right、center 等
-        //是否只在一行内显示全部内容
-        android:singleLine="true" //true或者false，默认为false
-        //输入内容设置为password类型
-        android:password="true" //输入的内容会变成······
-        //输入内容设置为phoneNumber类型
-        android:phoneNumber="true" //只能输入数字
-        //设定光标为显示/隐藏
-        android:cursorVisible = "false" //true或者false，默认为true显示
-        />
-     -->
     <EditText
         android:id="@+id/editText_change"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
 
     <ImageButton
         android:id="@+id/imageButton"

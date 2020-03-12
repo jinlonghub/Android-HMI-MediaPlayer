@@ -78,7 +78,7 @@
 38-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:29:13-44
 39
 40        <service
-40-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:31:9-34:48
+40-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:31:9-34:47
 41            android:name="com.example.playerdemo.MediaServiceProvider"
 41-->C:\Users\Sjin2\AndroidStudioProjects\PlayerDemo\app\src\main\AndroidManifest.xml:32:13-49
 42            android:enabled="true"

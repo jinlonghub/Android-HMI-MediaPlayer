@@ -1204,6 +1204,7 @@ id left
 id line1
 id line3
 id listMode
+id listView_playlist
 id list_item
 id masked
 id message
