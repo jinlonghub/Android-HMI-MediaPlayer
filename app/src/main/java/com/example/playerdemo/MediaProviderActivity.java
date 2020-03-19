@@ -5,19 +5,29 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.LayoutRes;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.MalformedParameterizedTypeException;
 import java.security.Provider;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MediaProviderActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,6 +38,9 @@ public class MediaProviderActivity extends AppCompatActivity implements View.OnC
     Button mNext;
     Button mPause;
     //static Cursor mCursor;
+    static ListView mListView;
+    List<String> itemsList = new ArrayList<String>();
+    private Handler asyncHandler = null;
 
     private IBinder mbinder = null;
     private ServiceConnection conn = new ServiceConnection() {
@@ -84,18 +97,81 @@ public class MediaProviderActivity extends AppCompatActivity implements View.OnC
 
     /*定义ListView_显示播放列表*/
     private void displayListView(){
-        final ListView mListView = this.findViewById(R.id.listView_playlist);
+        mListView = this.findViewById(R.id.listView_playlist);
+
+        /*方法一：使用音频路径作，作为数据源：MediaServiceProvider.mCursorCols
         //构建播放列表
-        //mCursor = getContentResolver().query(MediaServiceProvider.MUSIC_URL, MediaServiceProvider.mCursorCols, "duration > 10000", null, null);
-        //String[] list = new String[] {
-        //       mCursor
-        //};
+        mCursor = getContentResolver().query(MediaServiceProvider.MUSIC_URL, MediaServiceProvider.mCursorCols, "duration > 10000", null, null);
+        String[] list = new String[] {
+               mCursor
+        };
         //使用Adapter绑定数据源：MediaServiceProvider_mCursorCols.
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
                 MediaServiceProvider.mCursorCols);
-        mListView.setAdapter(adapter);
+        */
+
+        /*方法二：使用子线程+Handler，构建播放列表数据源，并在UI上显示
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                Cursor lisCursor = getContentResolver().query(MediaServiceProvider.MUSIC_URL, MediaServiceProvider.mCursorCols, "duration > 10000", null, null);
+                //ListitemAsyncTask.itemsAsyncTask(MediaServiceProvider.mCursor, itemsList);
+                ListitemAsyncTask.itemsAsyncTask(lisCursor, itemsList);
+                Log.d("Steven Log", "Async Task start to run.");
+                asyncHandler.sendMessage(asyncHandler.obtainMessage(0, itemsList));
+            }
+        }.start();
+        asyncHandler = new Handler() {
+            public void handleMessage(Message msg) {
+                if (msg.what == 0) {
+                    Log.d("Steven Log", "handler had been called.");
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(MediaProviderActivity.this, android.R.layout.simple_list_item_1, itemsList);
+                    mListView.setAdapter(adapter);
+                }
+            }
+        };
+         */
+
+        /*方法三：使用AsyncTask,构建播放列表数据源*/
+        Cursor lisCursor = getContentResolver().query(MediaServiceProvider.MUSIC_URL, MediaServiceProvider.mCursorCols,
+                                                      "duration > 10000", null, null);
+        //ListitemAsyncTask.itemsAsyncTask(lisCursor, itemsList);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(MediaProviderActivity.this, android.R.layout.simple_list_item_1, itemsList);
+        //mListView.setAdapter(adapter);
+        new PlaylistAsyncTask().execute(itemsList);
     }
+
+    public class PlaylistAsyncTask extends AsyncTask<List<String>, Void, List<String>> {
+        @Override
+        protected List<String> doInBackground(List<String>... params){
+            Cursor lisCursor = getContentResolver().query(MediaServiceProvider.MUSIC_URL, MediaServiceProvider.mCursorCols,
+                    "duration > 10000", null, null);
+            try {
+                Log.d("Steven Log", "itemsAsyncTask had been called.");
+                while (lisCursor.moveToNext()) {
+                    Log.d("Steven Log", "doInBackground had been called.");
+                    int titleColumn = lisCursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
+                    int artistColumn = lisCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
+                    String item = lisCursor.getString(artistColumn) + " _ " + lisCursor.getString(titleColumn);
+                    Log.d("Steven Log", "item is:" + item);
+                    itemsList.add(item);
+                    Log.d("Steven Log", "itemList is:" + itemsList);
+                }
+            } catch (MalformedParameterizedTypeException e) {
+                e.printStackTrace();
+            }
+            return itemsList;
+        }
+        @Override
+        protected void onPostExecute(List<String> itemsList) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MediaProviderActivity.this, android.R.layout.simple_list_item_1, itemsList);
+            MediaProviderActivity.mListView.setAdapter(adapter);
+        }
+    }
+
+
 
     public void setupProviderViews(){
         mPrevious.setOnClickListener(this);

@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.FileUtils;
 import android.os.IBinder;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by SJin2 on 2020/3/9.
@@ -17,13 +20,14 @@ import java.io.IOException;
 public class MediaServiceProvider extends Service {
     public MediaServiceProvider() {}
     private IBinder mediaProviderBinder;
+    //ARTIST 歌手, ALBUM 专辑, DURATION 时长, DATA 音频路径，
     static String[] mCursorCols = new String[] {
-            "audio._id AS _id", // index must match IDCOLIDX below
+            //"audio._id AS _id", // index must match IDCOLIDX below
             MediaStore.Audio.Media.ARTIST, MediaStore.Audio.Media.ALBUM,
             MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.DATA,
             MediaStore.Audio.Media.MIME_TYPE, MediaStore.Audio.Media.ALBUM_ID,
             MediaStore.Audio.Media.ARTIST_ID, MediaStore.Audio.Media.DURATION};
-    //通过一个URI可以获取所有音频文件
+    //通过一个URI可以获取外置存储音频文件
     static Uri MUSIC_URL = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
     static Cursor mCursor;
     private MediaPlayer mMediaPlayer;
@@ -47,6 +51,7 @@ public class MediaServiceProvider extends Service {
 
         //默认大于10秒的可以看作是音乐播放
         mCursor = getContentResolver().query(MUSIC_URL, mCursorCols, "duration > 10000", null, null);
+        Log.d("Steven Log", "mCursor had been created.");
     }
 
     @Override
@@ -141,5 +146,7 @@ public class MediaServiceProvider extends Service {
         super.onDestroy();
         mMediaPlayer.release();
     }
+
+
 
 }

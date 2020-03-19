@@ -36,6 +36,20 @@ public class MyActivity extends AppCompatActivity{
             android.Manifest.permission.MODIFY_AUDIO_SETTINGS,
             Manifest.permission.WAKE_LOCK
     };
+    private IBinder mbinder = null;
+    private ServiceConnection conn = new ServiceConnection() {
+        //@Override
+        public void onServiceConnected(ComponentName name, IBinder ibinder) {
+            Log.d("binder","client onServiceConnected called");
+            mbinder = ibinder;
+        }
+        public void onServiceDisconnected(ComponentName name) {
+            //
+        }
+    };
+    private boolean playing = false;
+    //private String filePlay = null;
+    private boolean onCreate = true;
 
     public static void verifyStoragePermissions(Activity activity) {
         try {
@@ -53,23 +67,6 @@ public class MyActivity extends AppCompatActivity{
             e.printStackTrace();
         }
     }
-
-
-    private IBinder mbinder = null;
-    private ServiceConnection conn = new ServiceConnection() {
-        //@Override
-        public void onServiceConnected(ComponentName name, IBinder ibinder) {
-            Log.d("binder","client onServiceConnected called");
-            mbinder = ibinder;
-        }
-        public void onServiceDisconnected(ComponentName name) {
-            //
-        }
-    };
-    private boolean playing = false;
-    //private String filePlay = null;
-    private boolean onCreate = true;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,7 +171,6 @@ public class MyActivity extends AppCompatActivity{
                 startActivityForResult(intent, 1122);
             }
         });
-
 
         startService(new Intent(this, MediaService.class));
         Intent intent = new Intent(MyActivity.this, MediaService.class);
